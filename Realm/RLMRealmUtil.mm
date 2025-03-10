@@ -244,7 +244,7 @@ void RLMAddBeforeNotifyBlock(RLMRealm *realm, dispatch_block_t block) {
 }
 @end
 
-RLMAsyncRefreshTask *RLMRealmRefreshAsync(RLMRealm *rlmRealm) {
+SrveRLMAsyncRefreshTask *RLMRealmRefreshAsync(RLMRealm *rlmRealm) {
     auto& realm = *rlmRealm->_realm;
     if (realm.is_frozen() || realm.config().immutable()) {
         return nil;
@@ -265,8 +265,8 @@ RLMAsyncRefreshTask *RLMRealmRefreshAsync(RLMRealm *rlmRealm) {
     // nothing left to do
     current = realm.current_transaction_version();
     if (current && current->version >= *latest)
-        return [RLMAsyncRefreshTask completedRefresh];
-    auto refresh = [[RLMAsyncRefreshTask alloc] init];
+        return [SrveRLMAsyncRefreshTask completedRefresh];
+    auto refresh = [[SrveRLMAsyncRefreshTask alloc] init];
 
     // Register the continuation to be called once the new version is ready
     auto& context = static_cast<RLMNotificationHelper&>(*realm.m_binding_context);

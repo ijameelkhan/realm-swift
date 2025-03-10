@@ -18,7 +18,7 @@
 
 #import <Realm/RLMRealm.h>
 
-@class RLMFastEnumerator, RLMScheduler, RLMAsyncRefreshTask, RLMAsyncWriteTask;
+@class RLMFastEnumerator, RLMScheduler, SrveRLMAsyncRefreshTask, RLMAsyncWriteTask;
 
 RLM_HEADER_AUDIT_BEGIN(nullability)
 
@@ -54,7 +54,7 @@ FOUNDATION_EXTERN RLMRealm *_Nullable RLMGetCachedRealm(RLMRealmConfiguration *,
 FOUNDATION_EXTERN RLMRealm *_Nullable RLMGetAnyCachedRealm(RLMRealmConfiguration *) NS_RETURNS_RETAINED;
 
 // Scheduler an async refresh for the given Realm
-FOUNDATION_EXTERN RLMAsyncRefreshTask *_Nullable RLMRealmRefreshAsync(RLMRealm *rlmRealm) NS_RETURNS_RETAINED;
+FOUNDATION_EXTERN SrveRLMAsyncRefreshTask *_Nullable RLMRealmRefreshAsync(RLMRealm *rlmRealm) NS_RETURNS_RETAINED;
 
 FOUNDATION_EXTERN void RLMRealmSubscribeToAll(RLMRealm *);
 

@@ -62,10 +62,10 @@ RLM_SWIFT_SENDABLE
 typedef void (^RLMAsyncRefreshCompletion)(bool);
 // A cancellable task for refreshing a Realm
 RLM_SWIFT_SENDABLE
-@interface RLMAsyncRefreshTask : NSObject
+@interface SrveRLMAsyncRefreshTask : NSObject
 - (void)complete:(bool)didRefresh;
 - (void)wait:(RLMAsyncRefreshCompletion)completion;
-+ (RLMAsyncRefreshTask *)completedRefresh;
++ (SrveRLMAsyncRefreshTask *)completedRefresh;
 @end
 
 // A cancellable task for refreshing a Realm

@@ -386,7 +386,7 @@ __attribute__((objc_direct_members))
 @end
 
 __attribute__((objc_direct_members))
-@implementation RLMAsyncRefreshTask {
+@implementation SrveRLMAsyncRefreshTask {
     RLMUnfairMutex _mutex;
     void (^_completion)(bool);
     bool _complete;
@@ -421,9 +421,9 @@ __attribute__((objc_direct_members))
     completion(didRefresh);
 }
 
-+ (RLMAsyncRefreshTask *)completedRefresh {
-    static RLMAsyncRefreshTask *shared = [] {
-        auto refresh = [[RLMAsyncRefreshTask alloc] init];
++ (SrveRLMAsyncRefreshTask *)completedRefresh {
+    static SrveRLMAsyncRefreshTask *shared = [] {
+        auto refresh = [[SrveRLMAsyncRefreshTask alloc] init];
         refresh->_complete = true;
         refresh->_didRefresh = true;
         return refresh;
